@@ -19,7 +19,7 @@ namespace MovementModifierCommands.Commands
         public AllowedCaller AllowedCaller => AllowedCaller.Both;
 
         public List<string> Aliases => new List<string>();
-
+        
         public List<string> Permissions => new List<string>()
         {
             "mm"
