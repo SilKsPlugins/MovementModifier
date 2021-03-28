@@ -5,14 +5,13 @@
     <PackageLicenseExpression></PackageLicenseExpression>
 	<PackageTags>openmod openmod-plugin unturned</PackageTags>
 	<RootNamespace>MovementModifier</RootNamespace>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <GenerateNugetPackage>true</GenerateNugetPackage>
     <AssemblyName>MovementModifier</AssemblyName>
     <Authors>SilK</Authors>
     <Company>SilK's Plugins</Company>
     <Version>0.0.0</Version>
     <Copyright>Copyright © SilK's Plugins 2021</Copyright>
     <Product>MovementModifier</Product>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

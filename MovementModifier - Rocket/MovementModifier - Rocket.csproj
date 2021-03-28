@@ -3,13 +3,13 @@
 	<PropertyGroup>
 		<TargetFramework>net461</TargetFramework>
 		<RootNamespace>MovementModifier</RootNamespace>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<AssemblyName>MovementModifier</AssemblyName>
 		<Authors>SilK</Authors>
 		<Company>SilK's Plugins</Company>
 		<Version>0.0.0</Version>
 		<Copyright>Copyright © SilK's Plugins 2021</Copyright>
 		<Product>MovementModifier</Product>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
