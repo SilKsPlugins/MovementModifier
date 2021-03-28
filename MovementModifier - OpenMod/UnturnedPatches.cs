@@ -6,7 +6,7 @@ namespace MovementModifier
     public class UnturnedPatches
     {
         public delegate void Tire(Player player, byte amount);
-        public static event Tire OnTire;
+        public static event Tire? OnTire;
 
         [HarmonyPatch(typeof(PlayerLife), "askTire")]
         private static class Stamina

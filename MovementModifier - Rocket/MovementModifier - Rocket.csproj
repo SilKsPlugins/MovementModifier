@@ -10,6 +10,10 @@
 		<Copyright>Copyright © SilK's Plugins 2021</Copyright>
 		<Product>MovementModifier</Product>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<Nullable>enable</Nullable>
+		<WarningsAsErrors>nullable</WarningsAsErrors>
+		<NoWarn>$(NoWarn);NU1701;NU1702;CS0436</NoWarn>
+		<LangVersion>9</LangVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

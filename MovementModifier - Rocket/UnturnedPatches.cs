@@ -14,7 +14,7 @@ namespace MovementModifier
             {
                 if (_modifyingStamina) return;
 
-                if (MovementModifierPlugin.Instance.StaminaCosts.TryGetValue(__instance.player.channel.owner.playerID.steamID,
+                if (MovementModifierPlugin.Instance!.StaminaCosts.TryGetValue(__instance.player.channel.owner.playerID.steamID,
                     out float staminaCost))
                 {
                     if (staminaCost == 1) return;

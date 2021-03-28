@@ -19,7 +19,7 @@ namespace MovementModifier
             m_Plugin = plugin;
         }
 
-        public Task HandleEventAsync(object sender, UnturnedPlayerConnectedEvent @event)
+        public Task HandleEventAsync(object? sender, UnturnedPlayerConnectedEvent @event)
         {
             async UniTask UpdatePlayer()
             {
@@ -35,21 +35,21 @@ namespace MovementModifier
             return Task.CompletedTask;
         }
 
-        public Task HandleEventAsync(object sender, UnturnedPlayerItemEquippedEvent @event)
+        public Task HandleEventAsync(object? sender, UnturnedPlayerItemEquippedEvent @event)
         {
             m_Plugin.UpdatePlayer(@event.Player.Player);
 
             return Task.CompletedTask;
         }
 
-        public Task HandleEventAsync(object sender, UnturnedPlayerItemUnequippedEvent @event)
+        public Task HandleEventAsync(object? sender, UnturnedPlayerItemUnequippedEvent @event)
         {
             m_Plugin.UpdatePlayer(@event.Player.Player);
 
             return Task.CompletedTask;
         }
 
-        public Task HandleEventAsync(object sender, UnturnedPlayerInventoryUpdatedEvent @event)
+        public Task HandleEventAsync(object? sender, UnturnedPlayerInventoryUpdatedEvent @event)
         {
             m_Plugin.UpdatePlayer(@event.Player.Player);
 

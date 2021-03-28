@@ -16,11 +16,11 @@ namespace MovementModifier
 {
     public class MovementModifierPlugin : RocketPlugin<MovementModifierConfiguration>
     {
-        public static MovementModifierPlugin Instance { get; private set; } = null;
+        public static MovementModifierPlugin? Instance { get; private set; } = null;
 
         public const string HarmonyId = "com.silk.movementmodifier";
 
-        public Harmony HarmonyInstance { get; private set; } = null;
+        public Harmony? HarmonyInstance { get; private set; } = null;
 
         public List<ItemModifier> ActiveModifiers = new List<ItemModifier>();
 
@@ -43,11 +43,11 @@ namespace MovementModifier
 
             int errors = 0;
 
-            Logger.Log($"Loading {Configuration.Instance.ItemModifiers.Length} modifiers...");
+            Logger.Log($"Loading {Configuration.Instance.ItemModifiers?.Length} modifiers...");
 
             ActiveModifiers.Clear();
 
-            foreach (ItemModifier modifier in Configuration.Instance.ItemModifiers)
+            foreach (ItemModifier modifier in Configuration.Instance.ItemModifiers!)
             {
                 modifier.Asset = GetAsset(modifier.Id.Trim());
 
@@ -145,7 +145,7 @@ namespace MovementModifier
             return d[n, m];
         }
 
-        public static ItemAsset GetAsset(string id)
+        public static ItemAsset? GetAsset(string id)
         {
             if (string.IsNullOrWhiteSpace(id)) return null;
 
@@ -266,9 +266,9 @@ namespace MovementModifier
 
             for (byte page = 0; page < PlayerInventory.PAGES - 2; page++)
             {
-                Items items = player.inventory.items[page];
+                var items = player.inventory.items[page];
 
-                ItemJar jar = items?.items.FirstOrDefault(x => x.item.id == id);
+                var jar = items?.items.FirstOrDefault(x => x.item.id == id);
 
                 if (jar != null) return true;
             }
@@ -278,13 +278,13 @@ namespace MovementModifier
 
         public Multipliers GetPlayerMultipliers(Player player)
         {
-            Multipliers result = Configuration.Instance.GlobalMultipliers.Clone();
+            var result = Configuration.Instance.GlobalMultipliers!.Clone();
 
             foreach (ItemModifier modifier in ActiveModifiers)
             {
                 bool applies = modifier.GetMustBeEquipped()
-                    ? IsEquipped(player, modifier.Asset)
-                    : HasItem(player, modifier.Asset.id);
+                    ? IsEquipped(player, modifier.Asset!)
+                    : HasItem(player, modifier.Asset!.id);
 
                 if (applies)
                 {

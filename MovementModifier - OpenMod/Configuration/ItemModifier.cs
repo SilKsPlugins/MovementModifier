@@ -25,9 +25,11 @@ namespace MovementModifier.Configuration
         {
             if (MustBeEquipped.HasValue) return MustBeEquipped.Value;
 
-            if (GetAsset() == null) return false;
+            var asset = GetAsset();
 
-            switch (GetAsset().type)
+            if (asset == null) return false;
+
+            switch (asset.type)
             {
                 case EItemType.BACKPACK:
                 case EItemType.GLASSES:
@@ -79,9 +81,9 @@ namespace MovementModifier.Configuration
             return d[n, m];
         }
 
-        private ItemAsset _cachedAsset;
+        private ItemAsset? _cachedAsset;
 
-        public ItemAsset GetAsset()
+        public ItemAsset? GetAsset()
         {
             if (_cachedAsset != null) return _cachedAsset;
 
@@ -117,9 +119,11 @@ namespace MovementModifier.Configuration
 
         public bool IsEquipped(Player player)
         {
-            ItemAsset asset = GetAsset();
+            var asset = GetAsset();
 
-            EItemType type = asset.type;
+            if (asset == null) return false;
+
+            var type = asset.type;
 
             switch (type)
             {
@@ -146,13 +150,17 @@ namespace MovementModifier.Configuration
         {
             if (IsEquipped(player)) return true;
 
-            ushort id = GetAsset().id;
+            var asset = GetAsset();
+
+            if (asset == null) return false;
+
+            var id = asset.id;
 
             for (byte page = 0; page < PlayerInventory.PAGES - 2; page++)
             {
-                Items items = player.inventory?.items[page];
+                var items = player.inventory?.items[page];
 
-                ItemJar jar = items?.items?.FirstOrDefault(x => x.item.id == id);
+                var jar = items?.items?.FirstOrDefault(x => x.item.id == id);
 
                 if (jar != null) return true;
             }

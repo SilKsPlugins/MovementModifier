@@ -5,10 +5,10 @@ namespace MovementModifier.Configuration
 {
     public class MovementModifierConfiguration : IRocketPluginConfiguration
     {
-        public Multipliers GlobalMultipliers;
+        public Multipliers? GlobalMultipliers;
 
         [XmlArrayItem("Item")]
-        public ItemModifier[] ItemModifiers;
+        public ItemModifier[]? ItemModifiers;
 
         public void LoadDefaults()
         {
