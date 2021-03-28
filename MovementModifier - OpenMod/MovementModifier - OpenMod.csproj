@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <PackageLicenseExpression></PackageLicenseExpression>
+	<PackageTags>openmod openmod-plugin unturned</PackageTags>
+	<RootNamespace>MovementModifier</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateNugetPackage>true</GenerateNugetPackage>
+    <AssemblyName>MovementModifier</AssemblyName>
+    <Authors>SilK</Authors>
+    <Company>SilK's Plugins</Company>
+    <Version>1.0.2</Version>
+    <Copyright>Copyright © SilK's Plugins 2020</Copyright>
+    <Product>MovementModifier</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="OpenMod.Unturned" Version="2.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="config.yaml" />
+    <EmbeddedResource Include="translations.yaml" />
+  </ItemGroup>
+
+</Project>
