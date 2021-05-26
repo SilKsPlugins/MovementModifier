@@ -201,6 +201,7 @@ namespace MovementModifier
             player.inventory.onInventoryAdded += (a, b, c) => UpdatePlayerMultipliers(player);
             player.inventory.onInventoryRemoved += (a, b, c) => UpdatePlayerMultipliers(player);
             player.inventory.onInventoryResized += (a, b, c) => UpdatePlayerMultipliers(player);
+            player.inventory.onInventoryStateUpdated += () => UpdatePlayerMultipliers(player);
 
             UpdatePlayerMultipliers(player);
         }
@@ -218,6 +219,7 @@ namespace MovementModifier
             player.inventory.onInventoryAdded -= (a, b, c) => UpdatePlayerMultipliers(player);
             player.inventory.onInventoryRemoved -= (a, b, c) => UpdatePlayerMultipliers(player);
             player.inventory.onInventoryResized -= (a, b, c) => UpdatePlayerMultipliers(player);
+            player.inventory.onInventoryStateUpdated -= () => UpdatePlayerMultipliers(player);
 
             UpdatePlayerMultipliers(player, true);
         }
