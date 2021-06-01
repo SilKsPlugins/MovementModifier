@@ -24,7 +24,7 @@ jobs:
       with:
         tag_name: ${{ github.event.inputs.version }}
         release_name: MovementModifier Release ${{ github.event.inputs.version }}
-        draft: false
+        draft: true
         prerelease: false
         
     - name: Setup .NET
