@@ -47,4 +47,4 @@ jobs:
       shell: bash
       
     - name: Push Release File to Imperial Plugins
-      run: curl -X POST "${{ env.IP_API_URL }}" -H  "accept: */*" -H  "Content-Type: application/json" -H "X-API-KEY: ${{ env.IP_API_KEY }}" -d @postdata.txt
+      run: "curl -X POST \"${{ env.IP_API_URL }}\" -H  \"accept: */*\" -H  \"Content-Type: application/json\" -H \"X-API-KEY: ${{ env.IP_API_KEY }}\" -d @postdata.txt"
