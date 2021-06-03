@@ -28,7 +28,7 @@ jobs:
       uses: DamianReeves/write-file-action@v1.0
       with:
         path: description.txt
-        contents: ${{ env.RELEASE_DESCRIPTION }}
+        contents: "${{ env.RELEASE_DESCRIPTION }}"
         write-mode: overwrite
     
     - name: Download OpenMod Release
