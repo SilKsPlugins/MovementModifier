@@ -1,4 +1,4 @@
-name: Create Release Draft
+name: Create Release Draft v${{ github.event.inputs.version }}
 
 on:
   workflow_dispatch:
