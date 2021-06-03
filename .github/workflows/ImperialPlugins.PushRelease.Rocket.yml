@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PRODUCT_ID: "538" # Must change per each plugin's workflow
+      PRODUCT_ID: "349" # Must change per each plugin's workflow
       
       PLUGIN_NAME: "${{ github.event.repository.name }}"
       VERSION: "${{ github.event.release.tag_name }}"
