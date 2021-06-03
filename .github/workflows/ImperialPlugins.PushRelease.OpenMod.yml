@@ -46,7 +46,7 @@ jobs:
           displayVersion="${{ env.VERSION }}" \
           forceUpdate=false \
           file[fileName]="${{ env.ASSET_FILE_NAME }}" \
-          file[base64]="data:application/x-zip-compressed;base64,$(base64 --wrap=0 ${{ env.ASSET_FILE_NAME }})" \
+          file[base64]="%${{ env.ASSET_FILE_NAME }}" \
           productBranchIdentifier="${{ env.PRODUCT_BRANCH }}" \
           productId=${{ env.PRODUCT_ID }} >> postdata.txt
       shell: bash
