@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Imperial Plugins Upload
+    name: Imperial Plugins Upload (Rocket)
     runs-on: ubuntu-latest
 
     env:
