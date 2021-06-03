@@ -49,6 +49,7 @@ jobs:
           file[base64]="%${{ env.ASSET_FILE_NAME }}" \
           productBranchIdentifier="${{ env.PRODUCT_BRANCH }}" \
           productId=${{ env.PRODUCT_ID }} >> postdata.txt
+        sed -i "s/base64\":\"/base64\":\"data:application\/x-zip-compressed;base64,/" postdata.txt
       shell: bash
       
     - name: Push Release File to Imperial Plugins
