@@ -18,7 +18,7 @@ jobs:
       RELEASE_DESCRIPTION: "${{ github.event.release.body }}"
       ASSET_FILE_NAME: "${{ github.event.repository.name }}-OpenMod-v${{ github.event.release.tag_name }}.zip"
       IP_API_KEY: "${{ secrets.IMPERIALPLUGINS_API_KEY }}"
-      IP_API_URL: "https://webhook.site/a842a320-a220-4a71-b8ed-5c1e63bb0f67"
+      IP_API_URL: "https://api.imperialplugins.com/v2/Products/Files"
 
     steps:
     - name: Install jo
