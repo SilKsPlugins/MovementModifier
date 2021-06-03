@@ -51,14 +51,6 @@ jobs:
           productId=${{ env.PRODUCT_ID }} >> postdata.txt
       shell: bash
       
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.3
-      with:
-        # Artifact name
-        name: OpenModPostData
-        # A file, directory or wildcard pattern that describes what to upload
-        path: postdata.txt
-      
     - name: Push Release File to Imperial Plugins
       run: "curl -X POST \"${{ env.IP_API_URL }}\" -H  \"accept: */*\" -H  \"Content-Type: application/json\" -H \"X-API-KEY: ${{ env.IP_API_KEY }}\" -d @postdata.txt"
       shell: bash
