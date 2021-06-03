@@ -17,7 +17,7 @@ jobs:
       RELEASE_DESCRIPTION: "${{ github.event.release.body }}"
       ASSET_FILE_NAME: "${{ github.event.repository.name }}-OpenMod-v${{ github.event.release.tag_name }}.zip"
       IP_API_KEY: "${{ secrets.IMPERIALPLUGINS_API_KEY }}"
-      IP_API_URL: "https://webhook.site/5589c778-5575-4c06-9d81-2b1d431f3ef3"
+      IP_API_URL: "https://api.imperialplugins.com/v2/Products/Files"
 
     steps:
     - name: Download OpenMod Release
