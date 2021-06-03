@@ -36,7 +36,7 @@ jobs:
         echo "\"displayVersion\":\"${{ env.TAG_NAME }}\"," >> postdata.txt
         echo "\"forceUpdate\":false," >> postdata.txt
         echo "\"file\":{" >> postdata.txt
-        echo "\"fileName\":\"${{ env.PLUGIN_NAME }}-OpenMod-v1.0.4.zip\"," >> postdata.txt
+        echo "\"fileName\":\"${{ env.ASSET_FILE_NAME }}\"," >> postdata.txt
         echo "\"base64\":\"data:application/x-zip-compressed;base64," >> postdata.txt
         base64 --wrap=0 "${{ env.ASSET_FILE_NAME }}" >> postdata.txt
         echo "\"" >> postdata.txt
