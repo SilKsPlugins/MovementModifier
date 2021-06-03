@@ -28,7 +28,7 @@ jobs:
       uses: DamianReeves/write-file-action@v1.0
       with:
         path: description.txt
-        contents: ${{ env.DESCRIPTION }}
+        contents: "${{ env.RELEASE_DESCRIPTION }}"
         write-mode: overwrite
       
     - name: Download Rocket Release
