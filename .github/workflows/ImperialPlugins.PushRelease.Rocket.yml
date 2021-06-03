@@ -14,6 +14,7 @@ jobs:
       
       PLUGIN_NAME: "${{ github.event.repository.name }}"
       VERSION: "${{ github.event.release.tag_name }}"
+      PRODUCT_BRANCH: "rocketmod"
       RELEASE_DESCRIPTION: "${{ github.event.release.body }}"
       ASSET_FILE_NAME: "${{ github.event.repository.name }}-Rocket-v${{ github.event.release.tag_name }}.zip"
       IP_API_KEY: "${{ secrets.IMPERIALPLUGINS_API_KEY }}"
@@ -27,23 +28,18 @@ jobs:
         version: "tags/${{ env.VERSION }}"
         file: "${{ env.ASSET_FILE_NAME }}"
         target: "${{ env.ASSET_FILE_NAME }}"
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: "${{ secrets.GITHUB_TOKEN }}"
         
     - name: Build Post File
       run: |
-        echo "{" >> postdata.txt
-        echo "\"markdownChangelog\":\"${{ env.RELEASE_DESCRIPTION }}\"," >> postdata.txt
-        echo "\"displayVersion\":\"${{ env.VERSION }}\"," >> postdata.txt
-        echo "\"forceUpdate\":false," >> postdata.txt
-        echo "\"file\":{" >> postdata.txt
-        echo "\"fileName\":\"${{ env.ASSET_FILE_NAME }}\"," >> postdata.txt
-        echo "\"base64\":\"data:application/x-zip-compressed;base64," >> postdata.txt
-        base64 --wrap=0 "${{ env.ASSET_FILE_NAME }}" >> postdata.txt
-        echo "\"" >> postdata.txt
-        echo "}," >> postdata.txt
-        echo "\"productBranchIdentifier\":\"rocketmod\"," >> postdata.txt
-        echo "\"productId\":${{ env.PRODUCT_ID }}" >> postdata.txt
-        echo "}" >> postdata.txt
+        echo "${{ env.RELEASE_DESCRIPTION }}" > description.txt
+        jo markdownChangelog=@description.txt \
+          displayVersion="${{ env.VERSION }}" \
+          forceUpdate=false \
+          file[fileName]="${{ env.ASSET_FILE_NAME }}" \
+          file[base64]="data:application/x-zip-compressed;base64,$(base64 --wrap=0 ${{ env.ASSET_FILE_NAME }})" \
+          productBranchIdentifier="${{ env.PRODUCT_BRANCH }}" \
+          productId=${{ env.PRODUCT_ID }} >> postdata.txt
       shell: bash
       
     - name: Push Release File to Imperial Plugins
