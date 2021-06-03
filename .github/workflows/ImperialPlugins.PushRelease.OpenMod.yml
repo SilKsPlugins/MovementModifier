@@ -1,4 +1,4 @@
-name: Imperial Plugins Push Release
+name: Imperial Plugins Push Release (OpenMod)
 
 on:
   release:
