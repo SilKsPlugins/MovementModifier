@@ -16,7 +16,7 @@ jobs:
       VERSION: "${{ github.event.release.tag_name }}"
       PRODUCT_BRANCH: "rocketmod"
       RELEASE_DESCRIPTION: "${{ github.event.release.body }}"
-      ASSET_FILE_NAME: "${{ github.event.repository.name }}-OpenMod-v${{ github.event.release.tag_name }}.zip"
+      ASSET_FILE_NAME: "${{ github.event.repository.name }}-Rocket-v${{ github.event.release.tag_name }}.zip"
       IP_API_KEY: "${{ secrets.IMPERIALPLUGINS_API_KEY }}"
       IP_API_URL: "https://api.imperialplugins.com/v2/Products/Files"
 
