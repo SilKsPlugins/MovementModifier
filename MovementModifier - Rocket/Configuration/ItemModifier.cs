@@ -23,7 +23,7 @@ namespace MovementModifier.Configuration
         public string? SpeedStr
         {
             get => Speed == 1 ? null : Speed.ToString(CultureInfo.InvariantCulture);
-            set => Speed = value == null ? 1 : float.Parse(value);
+            set => Speed = value == null ? 1 : float.Parse(value, CultureInfo.InvariantCulture);
         }
 
         [XmlIgnore]
@@ -33,7 +33,7 @@ namespace MovementModifier.Configuration
         public string? JumpStr
         {
             get => Jump == 1 ? null : Jump.ToString(CultureInfo.InvariantCulture);
-            set => Jump = value == null ? 1 : float.Parse(value);
+            set => Jump = value == null ? 1 : float.Parse(value, CultureInfo.InvariantCulture);
         }
 
 
@@ -44,7 +44,7 @@ namespace MovementModifier.Configuration
         public string? GravityStr
         {
             get => Gravity == 1 ? null : Gravity.ToString(CultureInfo.InvariantCulture);
-            set => Gravity = value == null ? 1 : float.Parse(value);
+            set => Gravity = value == null ? 1 : float.Parse(value, CultureInfo.InvariantCulture);
         }
 
 
@@ -55,7 +55,7 @@ namespace MovementModifier.Configuration
         public string? StaminaCostStr
         {
             get => StaminaCost == 1 ? null : StaminaCost.ToString(CultureInfo.InvariantCulture);
-            set => StaminaCost = value == null ? 1 : float.Parse(value);
+            set => StaminaCost = value == null ? 1 : float.Parse(value, CultureInfo.InvariantCulture);
         }
 
 
